@@ -1,0 +1,17 @@
+#%RAML 1.0 SecurityScheme
+type: OAuth 2.0
+description: this is OAuth 2 security schemes
+describedBy:
+  headers:
+    Authorization:
+      type: string
+      description: used to send valid OAth 2.0 acces token.
+  responses:
+    403:
+      description: ad OAuth requist( wrong consumer key, exired)
+    401:
+      description: Bad or expired token
+settings:
+  authorizationUri: http://auth.example.com/oauth/authorize
+  accessTokenUri: http://auth.example.com/oauth/token
+  authorizationGrants: [ authorization_code, implicit]

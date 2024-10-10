@@ -1,0 +1,13 @@
+{
+  "main": "notes_crud.raml",
+  "name": "Notes_CRUD",
+  "groupId": "da93467d-5695-4999-8970-fe7876f1957e",
+  "assetId": "notes_crud",
+  "version": "1.0.1",
+  "classifier": "raml",
+  "tags": [],
+  "descriptorVersion": "1.0.0",
+  "organizationId": "da93467d-5695-4999-8970-fe7876f1957e",
+  "apiVersion": "v1",
+  "originalFormatVersion": "1.0"
+}
