@@ -1,0 +1,4 @@
+%dw 2.0
+
+type auto_d6a71a08_1922_40e2_a342_744f045c1974_Output_Payload = Array<{|  noteid: Number,   title?: String,   content?: String,   createdAt?: Date,   updatedAt?: Date|}>
+

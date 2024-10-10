@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="Put_new-test-suite.xml" />
+	<munit:test name="Put_new-test-suiteTest" doc:id="0c95afb7-a30e-45ff-839d-e5d02fe79a8a" >
+		<munit:execution >
+			<munit:set-event doc:name="Set Event" doc:id="1e0fe106-63c9-471c-b8bd-db6d9e4faa2f" >
+				<munit:payload value='#[{&#10;	"title":"genkin",&#10;	"content":"ci and cd"&#10;}]' />
+				<munit:attributes value='#["uriParams":{"id":"112"}]' />
+			</munit:set-event>
+			<flow-ref doc:name="Flow Reference" doc:id="2a376fb2-2d37-4cf9-87bc-9855aa00b64a" name="put_dataFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-that doc:name="Assert that" doc:id="78ed64a3-bf56-4e96-8bdd-2085084e6f43" is="#[MunitTools::notNullValue()]" expression="#[payload]"/>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="post_new-test-suite.xml" />
+	<munit:test name="post_new-test-suiteTest" doc:id="ab2d2102-6790-4655-a096-bd05a3640296" >
+		<munit:execution >
+			<munit:set-event doc:name="Set Event" doc:id="85dd3257-dfd0-40de-af66-ec6f404f5d1d" >
+				<munit:payload value='#[{&#10;	"title":"git",&#10;	"content":"version"&#10;}]' />
+				<munit:attributes value='#["uriParams":{"id":"103"}]' />
+			</munit:set-event>
+			<flow-ref doc:name="Flow Reference" doc:id="9afa26d3-8f98-4369-9cce-ac896c63a734" name="post_note_dataFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-that doc:name="Assert that" doc:id="960c7640-2d4d-458a-b3bf-cb8c61f83d79" expression="#[payload]" is="#[MunitTools::notNullValue()]"/>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>

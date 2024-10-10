@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="GetById_new-test-suite.xml" />
+	<munit:test name="GetById_new-test-suiteTest" doc:id="7a0d9c5b-e069-4def-8792-80ede5bb9403" >
+		<munit:execution >
+			<munit:set-event doc:name="Set Event" doc:id="f5ad0cd8-52f0-4617-962a-49033f2904f5" >
+				<munit:attributes value='#["uriParams":{"id":"109"}]' />
+			</munit:set-event>
+			<flow-ref doc:name="Flow Reference" doc:id="578319cb-254b-480e-b206-574643e21f22" name="Get_data_By_IdFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-that doc:name="Assert that" doc:id="0b660b1b-02b6-4c52-81c8-9880be2d1ecb" is="#[MunitTools::notNullValue()]" expression="#[payload]"/>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>
